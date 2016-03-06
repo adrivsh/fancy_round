@@ -21,3 +21,10 @@ def fancy_round(x,n=2):
         return round(x,n-s)
     else:
         return int(round(x,n-s))
+        
+        
+from math import log10, floor
+def round_sig(x, sig=2):
+    if np.isnan(x) or np.isinf(x) or (x==0):
+        return x
+    return round(x, sig-int(floor(log10(abs(x)))-1)-2)        
